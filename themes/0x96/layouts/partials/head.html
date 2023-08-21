@@ -1,0 +1,12 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="robots" content="noodp" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+  <title>{{- .Site.Title -}}</title>
+  {{- $options := (dict "targetPath" "main.css" "outputStyle" "compressed") }}
+  {{- $style := resources.Get "scss/main.scss" | resources.ToCSS $options | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+{{ partial "favicons.html" . }}
+</head>
