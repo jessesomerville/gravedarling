@@ -1,0 +1,26 @@
+@mixin flex-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin font-size($size) {
+  @if map-has-key($font-sizes, $size) {
+    font-size: map-get($font-sizes, $size);
+    line-height: calc(8px + 2ex);
+  } @else {
+    @warn 'Unknown font size `#{$size}`. Valid sizes: #{map-keys($font-sizes)}';
+  }
+}
+
+/// https://sass-guidelin.es/#responsive-web-design-and-breakpoints
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn 'Breakpoint name `#{$breakpoint}` not found. Valid names: #{map-keys($breakpoints)}';
+  }
+}

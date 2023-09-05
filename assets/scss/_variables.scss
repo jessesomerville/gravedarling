@@ -1,0 +1,13 @@
+$bg-dark-purple: hsl(253, 31%, 26%);
+$fg-purple: hsl(253, 31%, 56%);
+
+$breakpoints: (
+  'small': 576px,
+  'medium': 768px,
+  'large': 992px,
+  'x-large': 1200px
+);
+
+$font-sizes: (
+  'small': clamp(0.5rem, calc(0.17vw + 0.56rem), 0.89rem)
+);

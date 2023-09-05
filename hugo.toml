@@ -1,15 +1,8 @@
 baseURL = 'http://gravedarling.art/'
 languageCode = 'en-us'
 title = 'gravedarling'
-theme = '0x96'
-
-[permalinks]
-  posts = '/:year/:month/:title/'
 
 [params.favicon.color]
   mask = "#252627"
   msapplication = "#252627"
   theme = "#252627"
-
-[params.logo]
-  logoText = "gravedarling"

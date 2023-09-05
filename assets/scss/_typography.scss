@@ -1,0 +1,7 @@
+/// Fallback font-family applied to the body of a page.
+$font-family-base-mono: 'DM Mono', SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+body {
+  color: $fg-purple;
+  font-family: $font-family-base-mono;
+}

@@ -1,0 +1,6 @@
+footer {
+  color: $fg-purple;
+  @include font-size('small');
+  padding-bottom: 5px;
+  text-align: center;
+}
