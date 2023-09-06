@@ -10,5 +10,9 @@
     <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
   {{ end }}
   {{ partial "fonts.html" . }}
-{{ partial "favicons.html" . }}
+  {{ partial "favicons.html" . }}
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+  {{- with resources.Get "js/main.js" }}
+    <script src="{{ .RelPermalink }}"></script>
+  {{ end }}
 </head>
