@@ -1,6 +1,3 @@
-@use 'sass:meta';
-@use 'sass:map';
-
 .main-logo {
   width: 80vw;
 }
@@ -13,6 +10,7 @@
 }
 
 .blobs {
+  -webkit-filter: url('#goo');
   filter: url('#goo');
   position: absolute;
   top: 0;
@@ -36,7 +34,7 @@
   &::after {
     content: '';
     position: absolute;
-    background: radial-gradient(hsl(340, 100, 63) 33%, hsl(226, 100%, 50%));
+    background: radial-gradient(hsl(340, 100%, 63%) 33%, hsl(226, 100%, 50%));
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -55,11 +53,4 @@
 .logo-clip-path {
   width: 0;
   height: 0;
-}
-
-.letter-orig {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
 }
