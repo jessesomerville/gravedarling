@@ -1,14 +1,19 @@
 $(function () {
-  makeBlobs(10, 'large');
-  makeBlobs(10, 'medium');
-  makeBlobs(10, 'small');
+  // makeBlobs(10, 'large');
+  // makeBlobs(10, 'medium');
+  makeBlobs(30, 'medium');
 
   $('.blob').each(function () {
-    const x = (Math.random() * 100);
-    const y = (Math.random() * 100);
+    console.log($(this).position());
+    const dx = (Math.random() * 200) - 100;
+    const dy = (Math.random() * 100) - 50;
     const scale = 1.5 - Math.random();
+    const dur = (Math.random() * 20) + 10;
+    const rot = Math.random() * 180;
     $(this).css({
-      'transform': `translateX(${x}%) translateY(${y}%) scale(${scale})`
+      'transform': `translateX(${dx}%) translateY(${dy}%) scale(${scale})`,
+      'animation-duration': `${dur}s`,
+      'rotate': `${rot}deg`
     });
   });
 });
