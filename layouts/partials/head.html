@@ -6,13 +6,13 @@
   <meta name="description" content="Art by Jillian Kalafut"/>
   <link rel="canonical" href="{{ .Permalink }}" />
   <title>{{- .Site.Title -}}</title>
+
   {{- $options := dict "transpiler" "dartsass" "targetPath" "css/style.css" }}
   {{- with resources.Get "scss/main.scss" | toCSS $options | minify | fingerprint }}
     <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
   {{ end }}
-  {{ partial "fonts.html" . }}
+  
   {{ partial "favicons.html" . }}
-  <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
   {{- with resources.Get "js/main.js" | minify | fingerprint }}
     <script src="{{ .RelPermalink }}" ingerity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
   {{ end }}

@@ -1,8 +1,19 @@
+@use 'sass:color';
+
 .main-logo {
   width: 80vw;
+  // Make the logo rotate to better fit mobile devices.
+  // width: 80vh;
+  // transform: rotate(90deg);
+
+  // @include respond-to('medium') {
+  //   width: 80vw;
+  //   transform: rotate(0deg);
+  // }
 }
 
 .logo-container {
+  background: color.mix($bg-dark-purple, black, 80%);
   position: relative;
   padding-top: 25%;
   -webkit-clip-path: url('#gravedarling-letters');
@@ -15,42 +26,84 @@
   position: absolute;
   top: 0;
   height: 100%;
-  width: 100%;
+  width: 110%;
+  left: -5%;
+  justify-content: space-between;
+
+  :nth-child(even) {
+    animation-direction: reverse !important;
+  }
+}
+
+@property --a1 {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --a2 {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@property --d1 {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+@property --d2 {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
 }
 
 .blob {
-  display: inline-table;
-  position: relative;
-  vertical-align: middle;
-  border-radius: 50%;
-  background: radial-gradient(hsl(73, 74%, 51%) 25%, rgb(216, 98, 1));
-  animation: glide ease-in-out infinite alternate;
-  transform-box: fill-box;
-  transform-origin: 50% 50%;
-  width: 10%;
-  height: 0;
-  padding-bottom: 10%;
+  animation:
+    a1 var(--da1, 10s),
+    a2 var(--da2, 20s),
+    d1 var(--dd1, 10s),
+    d2 var(--dd2, 40s);
+  animation-timing-function: cubic-bezier(0.5, -600, 0.5, 600) !important;
+  animation-iteration-count: infinite !important;
 
-  &::after {
+  background: radial-gradient(hsl(73, 74%, 51%) 25%, rgb(216, 98, 1));
+  border-radius: 50%;
+  height: 0;
+  display: inline-block;
+  margin: -2% auto;
+  padding-bottom: var(--diameter);
+  position: relative;
+  transform: rotate(var(--a1)) translate(var(--d1)) rotate(var(--a2)) translate(var(--d2));
+  width: var(--diameter);
+
+  &::before {
     content: '';
     position: absolute;
-    background: radial-gradient(hsl(340, 100%, 63%) 33%, hsl(226, 100%, 50%));
-    width: 100%;
-    height: 100%;
+    display: inline-block;
+    background: radial-gradient(hsl(340, 100%, 63%) 33%, hsl(273, 100%, 50%));
+    width: 85%;
+    padding-bottom: 85%;
     border-radius: 50%;
-    transform: translate3d(20%, 0, 10%);
-    z-index: -1;
+    transform: translate(-5%, 0);
   }
 }
 
-@keyframes glide {
-  50% {
-    rotate: 180deg;
-    transform: scale(2);
+@keyframes a1 {
+  to {
+    --a1: 0.5deg;
   }
 }
-
-.logo-clip-path {
-  width: 0;
-  height: 0;
+@keyframes a2 {
+  to {
+    --a2: 0.5deg;
+  }
+}
+@keyframes d1 {
+  to {
+    --d1: 0.1px;
+  }
+}
+@keyframes d2 {
+  to {
+    --d2: 0.2px;
+  }
 }
